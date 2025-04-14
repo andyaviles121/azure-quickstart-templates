@@ -65,7 +65,7 @@ param azureKeyVaultSubscriptionId string = subscription().subscriptionId
 @description('Name of the Azure Key Vault key')
 param azureKeyName string
 @description('Version of the Azure Key Vault key')
-param azureKeyVersion string = 'ca6784237c914edebfb9019b53f92c83'
+param azureKeyVersion string
 
 // User Assigned Identity
 @description('User Assigned Identity Name')
@@ -172,7 +172,7 @@ resource account 'Microsoft.CognitiveServices/accounts@2025-04-01-preview' = {
   Step 3: Deploy gpt-4o model
   
   - Agents will use the build-in model deployments
-
+*/
 resource modelDeployment 'Microsoft.CognitiveServices/accounts/deployments@2024-10-01'= {
   parent: account
   name: 'gpt-4o'
@@ -188,7 +188,6 @@ resource modelDeployment 'Microsoft.CognitiveServices/accounts/deployments@2024-
     }
   }
 }
-*/
 
 /*
   Step 4: Set an Account Capability Host. This resource maps to virtual hub Capability Host
