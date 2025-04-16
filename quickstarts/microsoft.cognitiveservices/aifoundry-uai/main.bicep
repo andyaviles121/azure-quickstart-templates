@@ -2,9 +2,10 @@
   AI Foundry account and project - with your User-Assigned managed identity.
   
   Description: 
-  - Create an account and project with UAI.
+  - Create an AI Foundry (previously known as Azure AI Services) account and project with UAI.
   - Create a gpt-4o model deployment
   - When creating a project, the Identity is not updateable. Please select 'SystemAssigned', 'UserAssigned' or 'SystemAssigned,UserAssigned' during creation as this cannot be updated. .
+  - Creating your first project is needed to support more capabilities and is the default reoute for APIs if no paramter is provided.
 
 */
 @description('That name is the name of our application. It has to be unique. Type a name followed by your resource group name. (<name>-<resourceGroupName>)')
@@ -50,8 +51,7 @@ resource account 'Microsoft.CognitiveServices/accounts@2025-04-01-preview' = {
     // Networking
     publicNetworkAccess: 'Enabled'
 
-    // When set, we provision hub virtual workspace on existing Account
-    // Below property cannot be reversed once set
+    // Specifies wheether this resource support project management as child resources, used as containers for access management, data isolation, and cost in AI Foundry.
     allowProjectManagement: true
 
     // Auth
