@@ -47,7 +47,7 @@ resource account 'Microsoft.CognitiveServices/accounts@2025-04-01-preview' = {
     // Below property cannot be reversed once set
     allowProjectManagement: true
 
-    customSubDomainName: '${aiServicesName}-azureai'
+    customSubDomainName: aiServicesName
     // auth
     disableLocalAuth: false
   }
